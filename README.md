@@ -1,24 +1,58 @@
-# README
+Grape in Rails
+====
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Use grape with swagger in rails.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+See demo for start:
 
-* System dependencies
+Clone the repository.
 
-* Configuration
+```sh
+$ git clone https://github.com/ajream/grape-rails.git
+```
 
-* Database creation
+Change directory
 
-* Database initialization
+```sh
+$ cd grape-rails
+```
 
-* How to run the test suite
+Run bundler
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+$ bundle install
+```
 
-* Deployment instructions
+Preparing database
 
-* ...
+```sh
+$ bin/rails db:migrate
+```
+
+Start the Rails server
+
+```sh
+$ bin/rails s
+```
+
+Open your browser, and visit `http://localhost:3000`
+
+## Contributing
+
+Bug report or pull request are welcome.
+
+### Make a pull request
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+Please write unit test with your code if necessary.
+
+## License
+
+The demo is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
