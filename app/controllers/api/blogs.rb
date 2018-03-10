@@ -87,7 +87,7 @@ module API
         build_response data: "hot #{params[:id]}"
       end
 
-      get 'latest' do
+      get 'latest', hidden: true do
         redirect '/api/blogs/popular'
       end
 
@@ -96,5 +96,14 @@ module API
         build_response data: 'popular'
       end
     end
+
+    add_swagger_documentation(
+      info: {
+        title: 'GrapeRails API Documentation',
+        contact_email: 'ajream.gd@gmail.com'
+      },
+      mount_path: '/doc/swagger',
+      doc_version: '0.1.0'
+    )
   end
 end
