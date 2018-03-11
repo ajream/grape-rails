@@ -1,5 +1,11 @@
 module API
   class Blogs < Grape::API
+    # grape 数据默认支持一下四种格式, 只要声明，默认的形式就会被覆盖
+    # content_type :json, 'application/json'
+    # content_type :xml, 'application/xml'
+    # content_type :txt, 'application/plain'
+    # content_type :binary, 'application/octet-stream'
+
     default_format :json
 
     # version 'v1', using: :path
