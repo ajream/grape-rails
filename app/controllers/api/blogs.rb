@@ -14,6 +14,16 @@ module API
       end
     end
 
+    rescue_from ActiveRecord::RecordNotFound do |e|
+      error!({ code: 1, message: 'not found' }, 404)
+    end
+
+    rescue_from NoMethodError do |e|
+      error!({ code: 1, message: 'system error' }, 422)
+    end
+
+    # rescue_from :all
+
     # http_basic do |username, password|
     #   username == 'test' && password == 'hello'
     # end
@@ -41,13 +51,14 @@ module API
 
     version 'v1', using: :path do
       get 'test/filter' do
-        'test filter v1'
+        # raise ActiveRecord::RecordNotFound
+        build_response data: 'test filter v1'
       end
     end
 
     version 'v2', using: :path do
       get 'test/filter' do
-        'test filter v2'
+        build_response data: 'test filter v2'
       end
     end
 
