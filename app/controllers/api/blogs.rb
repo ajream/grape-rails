@@ -2,6 +2,8 @@ module API
   class Blogs < Grape::API
     default_format :json
 
+    # version 'v1', using: :path
+
     helpers do
       def build_response code: 0, data: nil
         { code: code, data: data }
@@ -35,6 +37,18 @@ module API
 
     after_validation do
       p "3: after_validation "
+    end
+
+    version 'v1', using: :path do
+      get 'test/filter' do
+        'test filter v1'
+      end
+    end
+
+    version 'v2', using: :path do
+      get 'test/filter' do
+        'test filter v2'
+      end
     end
 
     #别名： namespace, resource, group, segment
