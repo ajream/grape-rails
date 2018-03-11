@@ -12,6 +12,31 @@ module API
       end
     end
 
+    # http_basic do |username, password|
+    #   username == 'test' && password == 'hello'
+    # end
+
+    before do
+      p "1: before"
+      # @current_user = User.find request.headers['']
+      unless request.headers['X-Api-Secret-Key'] == 'apt_secret_key'
+        error!({ code: 1, message: 'forbidden' }, 403)
+      end
+    end
+
+    # 在每个 API 请求之后执行
+    after do
+      p "4: after."
+    end
+
+    before_validation do
+      p "2: before_validation "
+    end
+
+    after_validation do
+      p "3: after_validation "
+    end
+
     #别名： namespace, resource, group, segment
     resources :blogs do
       get do
