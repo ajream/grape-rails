@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  mount API::Blogs => '/api'
+  mount API::Base => '/api'
   mount GrapeSwaggerRails::Engine => '/api/doc'
 end
